@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSV Data</title>
+    <meta http-equiv="refresh" content="10"> 
+</head>
+<body>
+
+    <form action="/form" method="get">
+        <button type="submit">Go to form</button>
+    </form>
+    <h2>Averages</h2>
+    <!--<ul>
+        {% for i in range(num_columns) %}
+        <li>Column {{ i+1 }} ({{ data[0][i] }}) Average: {{ averages[i] }}</li>
+        {% endfor %}
+    </ul>-->
+
+
+    <ul>
+        <li>Average Temperature (℃): {{ averages[0] }}</li>
+    </br>
+        <li>Average Humidity (%): {{ averages[1] }}</li>
+    </br>
+        <li>Average Light (W/m2): {{ averages[2] }}</li>
+    </ul>
+    
+
+
+
+
+    <h1>Data from CSV</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Temperature (℃)</th>
+                <th>Humidity (%)</th>
+                <th>Light (W/m2)</th>
+                <!-- Add more header columns for additional columns -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <!-- Add more table cells for additional columns -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <form action="/empty" method="get">
+        <button type="submit">Empty CSV</button>
+    </form>
+</body>
+</html>

@@ -13,9 +13,58 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(script_dir)
 
 
+DHTPIN = 12  # digital pin => air
+LDRPIN = 2  # analog pin A2
+
 app = Flask(__name__)
 
+PIN9 = 9  # left yellow button
+REDLEDPIN5 = 5  # green led
 
+humidity = 0
+temperature = 0
+value = 0
+
+
+def Measure(data):
+    global humidity, temperature
+    if (data[1] == 0):
+        humidity = data[4]
+        temperature = data[5]
+
+
+def setup():
+    global board
+    board = CustomTelemetrix()
+    board.displayOn()
+    board.set_pin_mode_dht(DHTPIN, dht_type=11, callback=Measure)
+    board.set_pin_mode_analog_input(LDRPIN, callback=LDRChanged, differential=10)
+    board.set_pin_mode_digital_input_pullup(PIN9)
+
+
+def loop():
+    global humidity, temperature, value
+    time.sleep(0.01)
+
+    data2 = board.digital_read(PIN9)
+    if data2:
+        level2 = data2[0]
+        print(level2)
+
+        if level2 == 0:
+            board.digital_write(REDLEDPIN5, 1)
+        else:
+            board.digital_write(REDLEDPIN5, 0)
+
+    print(humidity, temperature, value)
+    if value == 0:
+        board.displayShow(temperature)
+    elif value == 1:
+        board.displayShow(humidity)
+    elif value == 2:
+        board.displayShow(board.get_brightness())
+    elif value == 3:
+        board.displayShow(temperature)
 
 
 def LDRChanged(data):
@@ -51,6 +100,9 @@ def hello_Brightness():
     return render_template('index.html', input_EPIC_name="Brightness", input_EPIC_data=value, link=link, legend_image=legend_image)
 
 
+
+
+#
 #
 
 @app.route('/form')
