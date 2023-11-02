@@ -119,7 +119,7 @@ def empty_csv():
 
 #
 # write to csv
-
+ 
 def write_data_to_csv():
     global humidity, temperature, value
     data_file_path = 'data.csv'  # Relative path to the file
