@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Delivery Page</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <!-- CSS stylesheets -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    
+    <!-- JavaScript files -->
+    <script src="script.js"></script>
+
+
+
+</head>
+<body>
+    <div class="navbar">
+            <a href="#home"><img src="logo.png" height="70px" width="70px" ></a>
+            <b href="#news"><h2>Next</h2></b>
+            <b href="javascript:history.back()"><h2>Return</h2></b>
+
+    </div>
+
+    <div class="CasierPagePizza">
+        <p>pizza</p>
+    </div>
+
+    <div class="CasierPageDrinks">
+        <p>drinks</p>
+    </div>
+
+    <div class="CasierPageTotal">
+        <p>total</p>
+    </div>
+
+
+    <div class="pizza-row">
+        <div class="pizza">
+          <h1>Pizza 1</h1>
+          <p class="price">$10</p>
+          <div class="counter">
+            <button onclick="decrementValue('pizza1')">-</button>
+            <input type="number" id="counterInput1" value="0">
+            <button onclick="incrementValue('pizza1')">+</button>
+          </div>
+        </div>
+        <div class="pizza">
+          <h1>Pizza 2</h1>
+          <p class="price">$12</p>
+          <div class="counter">
+            <button onclick="decrementValue('pizza2')">-</button>
+            <input type="number" id="counterInput2" value="0">
+            <button onclick="incrementValue('pizza2')">+</button>
+          </div>
+        </div>
+      </div>
+    
+      <div class="total-row">
+        <h2>Total:</h2>
+        <p id="totalPrice">$0</p>
+      </div>
+    
+      <button onclick="submitPizza()">Submit</button>
+    
+      <script src="script.js"></script>
+
+</body>
+</html>
