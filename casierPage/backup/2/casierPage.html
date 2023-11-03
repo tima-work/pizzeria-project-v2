@@ -210,33 +210,25 @@
     let drinkCount = 0;
 
     function incrementPizza() {
-      let pizzaCountElement = document.getElementById("pizza-count");
       pizzaCount++;
-      pizzaCountElement.textContent = pizzaCount;
       updateTotalCost();
     }
 
     function decrementPizza() {
-      let pizzaCountElement = document.getElementById("pizza-count");
       if (pizzaCount > 0) {
         pizzaCount--;
-        pizzaCountElement.textContent = pizzaCount;
         updateTotalCost();
       }
     }
 
     function incrementDrink() {
-      let drinkCountElement = document.getElementById("drink-count");
       drinkCount++;
-      drinkCountElement.textContent = drinkCount;
       updateTotalCost();
     }
 
     function decrementDrink() {
-      let drinkCountElement = document.getElementById("drink-count");
       if (drinkCount > 0) {
         drinkCount--;
-        drinkCountElement.textContent = drinkCount;
         updateTotalCost();
       }
     }
