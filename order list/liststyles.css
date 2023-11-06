@@ -1,0 +1,87 @@
+
+body {
+    background-color:rgb(179, 179, 179);
+    margin: 0;
+    padding: 0
+}
+
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+    background-color: #d4d4d4;
+    border-radius:15px;
+    color: #000000;
+    cursor: pointer;
+    padding: 18px;
+    width: 80%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 40px;
+    height:100px;
+  }
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .collapsible:hover {
+    background-color: #ccc;
+  }
+  .active {
+    border-radius:15px 15px 0px 0px;
+  }
+  
+  /* Style the collapsible content. Note: hidden by default */
+  .content {
+    width:80%;
+    border-radius:0px 0px 20px 20px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    transition: max-height 0.2s ease-out;
+    font-size:20px;
+  }
+
+  .collapsible:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 35px;
+    color: rgb(84, 255, 84);
+    float: left;
+    margin-left: 5px;
+    padding:0px 20px;
+  }
+  
+  .active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+  }
+
+
+/* The navigation bar */
+.navbar {
+    overflow: hidden;
+    background-color: #638d3b;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    
+  }
+  
+  /* Links inside the navbar */
+  .navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 4px 16px;
+    text-decoration: none;
+  }
+  /* Change background on mouse-over */
+  .navbar a:hover {
+    background: #ddd;
+    color: black;
+  }
+H1 {
+    font-size:50px;
+    color:rgb(0, 0, 0);
+    
+    
+}
+
