@@ -15,6 +15,7 @@ os.chdir(script_dir)
 
 app = Flask(__name__,)
 app.static_folder = 'static'
+order_number = random.randint(1, 999)
 
 @app.route('/')
 def homepage():
@@ -46,9 +47,7 @@ def submit():
         drinks3 = request.form['quantity8']
         drinks4 = request.form['quantity9']
         drinks5 = request.form['quantity10']
-        
-        order_number = random.randint(1, 999)  # Generate a new order number
-        
+
         with open('data.csv', 'a', newline='') as file:
             csv_writer = csv.writer(file)
             csv_writer.writerow([order_number, pizza1, pizza2, pizza3, pizza4, pizza5, drinks1, drinks2, drinks3, drinks4, drinks5])
@@ -95,7 +94,22 @@ def display_data():
         csv_reader = csv.reader(file)
         data_list = list(csv_reader)
 
-    return render_template('data.html', data_list=data_list, row=data_list[0])
+    order_number = data_list[0][0]
+    pizza1 = data_list[0][1]
+    pizza2 = data_list[0][2]
+    pizza3 = data_list[0][3]
+    pizza4 = data_list[0][4]
+    pizza5 = data_list[0][5]
+    drinks1 = data_list[0][6]
+    drinks2 = data_list[0][7]
+    drinks3 = data_list[0][8]
+    drinks4 = data_list[0][9]
+    drinks5 = data_list[0][10]
+
+    return render_template('data.html', order_number=order_number, pizza1=pizza1, pizza2=pizza2, pizza3=pizza3, pizza4=pizza4, pizza5=pizza5, drinks1=drinks1, drinks2=drinks2, drinks3=drinks3, drinks4=drinks4, drinks5=drinks5)
+
+
+
 
 if __name__ == "__main__":
     app.run(debug=False)

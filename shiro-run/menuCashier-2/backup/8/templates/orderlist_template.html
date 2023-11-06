@@ -16,10 +16,7 @@
             <button type="button" class="collapsible">order {{ order number }}</button>
             <div class="content">
                 <list>
-                  <body>
-                    {% for row in data_list %}
-                    <h1>Order Number: {{ row[0] }}</h1>
-                
+                    Customer number  row[0] has ordered:
                     <h2>Pizzas:</h2>
                     <ul>
                         {% if row[1] %}
@@ -58,7 +55,6 @@
                         {% endif %}
                     </ul>
                     {% endfor %}
-                </body>
                 </list>
             </div>
 

@@ -1,0 +1,123 @@
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: sans-serif;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+  }
+  
+  body {
+    width: 100%;
+    min-height: 100vh; /* Changed from height to min-height */
+    background: url(background.jpeg) center;
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Added */
+  }
+  
+  .mainTitle {
+    color: rgb(0, 0, 0);
+    font-size: 70px;
+    font-family: Brush Script MT, cursive;
+    -webkit-text-stroke: 1px lightgray;
+    justify-content: center;
+    text-align: center;
+    transform: translateX(490%);
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 6em;
+  }
+  
+  .pizzasBox,
+  .drinksBox {
+    width: 30em;
+    height: 23em;
+    box-shadow: 5px 5px 25px black;
+    padding: 10px 30px;
+    border: 2px solid #000000;
+    border-radius: 15px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  h2 {
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: #638d3b;
+    text-decoration-thickness: 3px;
+  }
+  
+  .product {
+    font-size: 20px;
+    justify-content: center;
+  }
+  
+  .num {
+    font-size: 14px;
+    background-color: #ffd48a91;
+  }
+  
+  button {
+    width: 250px;
+    padding: 20px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #ffc869;
+    background: transparent;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  span {
+    background: #ffd48a;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+  }
+  
+  button:hover span {
+    width: 100%;
+  }
+  
+  button:hover {
+    border: none;
+  }
+  
+  .goButton {
+    font-size: 20px;
+    -webkit-text-stroke: 0.5px #000000;
+    background-color: #ffd48a91;
+  }
+  
+  .buttonContainer {
+    position: sticky; /* Changed from absolute to sticky */
+    bottom: 20px; /* Added */
+    display: flex; /* Added */
+    justify-content: center; /* Added */
+    align-items: center; /* Added */
+  }
+  
