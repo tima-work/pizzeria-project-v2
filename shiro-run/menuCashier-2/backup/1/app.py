@@ -13,7 +13,9 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(script_dir)
 
 
-app = Flask(__name__)
+app = Flask(__name__,)
+app.static_folder = 'static'
+
 
 
 
@@ -27,7 +29,7 @@ def homepage():
 
 @app.route('/casier')
 def hello_Temperature():
-    link = url_for('casier') 
+    #link = url_for('casier') 
     return render_template('menuCashier.html')
 
 

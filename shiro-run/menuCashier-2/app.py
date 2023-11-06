@@ -13,7 +13,9 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(script_dir)
 
 
-app = Flask(__name__)
+app = Flask(__name__,)
+app.static_folder = 'static'
+
 
 
 
@@ -27,7 +29,7 @@ def homepage():
 
 @app.route('/casier')
 def hello_Temperature():
-    link = url_for('casier') 
+    #link = url_for('casier') 
     return render_template('menuCashier.html')
 
 
@@ -35,8 +37,8 @@ def hello_Temperature():
 
 
 
-@app.route('/submit-all', methods=['POST'])
-def submitall():
+@app.route('/submit', methods=['POST'])
+def submit():
     if request.method == 'POST':
         pizza1 = request.form['quantity1']
         pizza2 = request.form['quantity2']
@@ -64,22 +66,23 @@ def submitall():
 
 
 
-@app.route('/data')
-def display_data():
-    with open('data.csv', 'r') as file:
-        csv_reader = csv.reader(file)
-        data_list = list(csv_reader)
-
-    # Calculate the average for each column
-    averages = []
-    for i in range(len(data_list[0])):
-        column_values = [float(row[i]) for row in data_list[1:] if row[i] != '']  # Exclude empty values
-        column_average = sum(column_values) / len(column_values)
-        averages.append(column_average)
-
-    num_columns = len(data_list[0])  # Calculate the number of columns
-
-    return render_template('data.html', data=data_list, averages=averages, num_columns=num_columns)
+#@app.route('/orders')
+#def display_orders():
+#    with open('data.csv', 'r') as file:
+#        csv_reader = csv.reader(file)
+#        data_list = list(csv_reader)
+#
+#    # Calculate the average for each column
+#    averages = []
+#    for i in range(len(data_list[0])):
+#        column_values = [float(row[i]) for row in data_list[1:] if row[i] != '']  # Exclude empty values
+#        column_average = sum(column_values) / len(column_values)
+#        averages.append(column_average)
+#
+#    num_columns = len(data_list[0])  # Calculate the number of columns
+#
+#    return render_template('data.html', data=data_list, averages=averages, num_columns=num_columns)
+#
 
 
 @app.route('/empty')
@@ -106,7 +109,7 @@ def empty_csv():
 # write to csv
  
 def write_data_to_csv():
-    global humidity, temperature, value
+    global pizza1, pizza2, pizza3, pizza4, pizza5, drinks1, drinks2, drinks3, drinks4, drinks5
     data_file_path = 'data.csv'  # Relative path to the file
 
     while True:
@@ -114,22 +117,13 @@ def write_data_to_csv():
             with open(data_file_path, 'w', newline='') as file:
                 file.write("temperature, humidity, value\n")
         with open(data_file_path, 'a', newline='') as file:
-            file.write(f"{temperature}, {humidity}, {value}\n")
+            file.write(f"{pizza1}, {pizza2}, {pizza3}, {pizza4}, {pizza5}, {drinks1}, {drinks2}, {drinks3}, {drinks4}, {drinks5}\n")
         time.sleep(10)
 
 
 # --------------
 # main program
 # --------------
-#setup()
-#while True:
-#    try:
-#        loop()
-#    except KeyboardInterrupt:  # crtl+C
-##        print('shutdown')
-#        #board.shutdown()
-#        sys.exit(0)
-
 
 if __name__ == "__main__":
     app.run(debug=False)
