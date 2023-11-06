@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="styles-menu.css">
+    <title>Drink menu</title>
+  </head>
+  <body>
+    <div class="navbar">
+        <a href="#home"><img src="pizza-slice-on-transparent-background-png.webp" height="70px" width="70px" ></a>
+    <div class="navbar-right">
+        <a href="javascript:history.back()"><h2>Return</h2></a>
+        <a href="payment.html"><h2>Payment</h2></a>
+    </div>
+    </div>   
+    <div class="tableFixHeadList" class="div" style="margin-top: 300px; margin-left: 1500px; position:absolute">
+        <table style="width:100%">
+          <tr>
+            <th colspan="2">
+              <b>your order<b>
+            </th>
+          </tr>
+          <td colspan="2" style="height:300px; width: 200px">
+            <list class="left1"> {{ orders }}</list>
+  
+          </td>
+          <tr>
+            <th style="height: 30px; width: 100px;">
+              <a href="payment.html" class="button">payment</a>
+            </th>
+            <th style="width: auto;">
+              Total Price: {{ total }}
+            </th>
+          </tr>
+        </table>
+      </div> 
+    <center><br><br><br><h1>Drinks</h1>
+    <div class="tableFixHead">
+      <table>
+        <tr></tr>
+          <th><img class="left" style="float:left" src=cola.jpeg><p class="left1">Cola</p>
+          <p><button class="right" onclick="">add</button></p>
+          <p class="left1">price:$500</p>
+          </th>
+        </tr>
+        <tr>
+          <th><img class="left" style="float:left" src=spirt.jpeg><p class="left1">Sprite</p>
+            <p><button class="right" onclick="">add</button></p>
+            <p class="left1">price:$500</p>
+          </th>
+        </tr>
+        <tr>
+          <th><img class="left" style="float:left" src=pepsi.jpeg><p class="left1">Pepsi</p>
+            <p><button class="right" onclick="">add</button></p>
+            <p class="left1">price:$500</p>
+          </th>
+        </tr>
+        <tr>
+          <th><img class="left" style="float:left" src=heineke.jpeg><p class="left1">Heineke</p>
+            <p><button class="right" onclick="">add</button></p>
+            <p class="left1">price:$500</p>
+          </th>
+        </tr>
+        <tr>
+          <th><img class="left" style="float:left" src=corona.jpeg><p class="left1">Corona</p>
+            <p><button class="right" onclick="">add</button></p>
+            <p class="left1">price:$500</p>
+          </th>
+        </tr>
+      </table>
+    </div>
+    </center>
+  </body>
+</html>
