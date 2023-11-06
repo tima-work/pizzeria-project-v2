@@ -7,6 +7,7 @@ import os
 from flask import Flask, url_for
 import csv
 from flask import Flask, render_template, request
+import random
 
 # Set the current working directory to script
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -14,6 +15,7 @@ os.chdir(script_dir)
 
 app = Flask(__name__,)
 app.static_folder = 'static'
+order_number = random.randint(1, 999)
 
 @app.route('/')
 def homepage():
@@ -22,6 +24,15 @@ def homepage():
 @app.route('/casier')
 def hello_Temperature():
     return render_template('menuCashier.html')
+
+def add_order():
+    global all_orders
+    global order_list
+    
+    while order_number in all_orders:
+        order_number = random.randint(1, 999)
+    all_orders[order_number] = order_list
+    return order_number
 
 @app.route('/submit', methods=['POST'])
 def submit():
@@ -39,7 +50,7 @@ def submit():
 
         with open('data.csv', 'a', newline='') as file:
             csv_writer = csv.writer(file)
-            csv_writer.writerow([pizza1, pizza2, pizza3, pizza4, pizza5, drinks1, drinks2, drinks3, drinks4, drinks5])
+            csv_writer.writerow([order_number, pizza1, pizza2, pizza3, pizza4, pizza5, drinks1, drinks2, drinks3, drinks4, drinks5])
 
         return '''
         <h1>Data stored successfully!</h1>
@@ -65,7 +76,7 @@ def empty_csv():
     '''
 
 def write_data_to_csv():
-    global pizza1, pizza2, pizza3, pizza4, pizza5, drinks1, drinks2, drinks3, drinks4, drinks5
+    global order_number, pizza1, pizza2, pizza3, pizza4, pizza5, drinks1, drinks2, drinks3, drinks4, drinks5
     data_file_path = 'data.csv'
 
     while True:
@@ -73,7 +84,7 @@ def write_data_to_csv():
             with open(data_file_path, 'w', newline='') as file:
                 file.write("temperature, humidity, value\n")
         with open(data_file_path, 'a', newline='') as file:
-            file.write(f"{pizza1}, {pizza2}, {pizza3}, {pizza4}, {pizza5}, {drinks1}, {drinks2}, {drinks3}, {drinks4}, {drinks5}\n")
+            file.write(f"{order_number}{pizza1}, {pizza2}, {pizza3}, {pizza4}, {pizza5}, {drinks1}, {drinks2}, {drinks3}, {drinks4}, {drinks5}\n")
         time.sleep(10)
 
 if __name__ == "__main__":
