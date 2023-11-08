@@ -95,7 +95,7 @@ def display_data():
         csv_reader = csv.reader(file)
         data_list = list(csv_reader)
 
-    return render_template('data.html', data_list=data_list, row=data_list[0])
+    return render_template('data.html', data_list=data_list)
 
 if __name__ == "__main__":
     app.run(debug=False)

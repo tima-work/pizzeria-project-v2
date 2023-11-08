@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>order list</title>
+        <link rel="stylesheet" href="liststyles.css">
+        
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="#home"><img src="pizza-slice-on-transparent-background-png.webp" height="70px" width="70px" ></a>
+        </div>
+        <center>
+            <br><br><br>
+            <h1>order screen</h1>    
+        
+            <button type="button" class="collapsible">order</button>
+            <div class="content">
+                <list>
+                  <body>
+                    {% for row in data_list %}
+                    <h1>Order Number: {{ row[0] }}</h1>
+                
+                    <h2>Pizzas:</h2>
+                    <ul>
+                        {% if row[1] %}
+                        <li>Pepperoni {{ row[1] }}</li>
+                        {% endif %}
+                        {% if row[2] %}
+                        <li>Hawaï {{ row[2] }}</li>
+                        {% endif %}
+                        {% if row[3] %}
+                        <li>Seafood pizza {{ row[3] }}</li>
+                        {% endif %}
+                        {% if row[4] %}
+                        <li>Four cheese pizza {{ row[4] }}</li>
+                        {% endif %}
+                        {% if row[5] %}
+                        <li>Veggie pizza {{ row[5] }}</li>
+                        {% endif %}
+                    </ul>
+                
+                    <h2>Drinks:</h2>
+                    <ul>
+                        {% if row[6] %}
+                        <li>Coca-Cola {{ row[6] }}</li>
+                        {% endif %}
+                        {% if row[7] %}
+                        <li>Sprite {{ row[7] }}</li>
+                        {% endif %}
+                        {% if row[8] %}
+                        <li>Pepsi {{ row[8] }}</li>
+                        {% endif %}
+                        {% if row[9] %}
+                        <li>Heineken {{ row[9] }}</li>
+                        {% endif %}
+                        {% if row[10] %}
+                        <li>Corona  {{ row[10] }}</li>
+                        {% endif %}
+                    </ul>
+                    {% endfor %}
+                </body>
+                </list>
+            </div>
+
+        </Center>
+        
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+            
+            for (i = 0; i < coll.length; i++) {
+              coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                  content.style.display = "none";
+                } else {
+                  content.style.display = "block";
+                }
+              });
+            }
+        </script>
+    </body>
+</html>

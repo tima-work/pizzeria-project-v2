@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data</title>
+</head>
+<body>
+    {% for row in data_list %}
+    <h1>Order Number: {{ row[0] }}</h1>
+
+    <h2>Pizzas:</h2>
+    <ul>
+        {% if row[1] %}
+        <li>Pepperoni {{ row[1] }}</li>
+        {% endif %}
+        {% if row[2] %}
+        <li>Hawaï {{ row[2] }}</li>
+        {% endif %}
+        {% if row[3] %}
+        <li>Seafood pizza {{ row[3] }}</li>
+        {% endif %}
+        {% if row[4] %}
+        <li>Four cheese pizza {{ row[4] }}</li>
+        {% endif %}
+        {% if row[5] %}
+        <li>Veggie pizza {{ row[5] }}</li>
+        {% endif %}
+    </ul>
+
+    <h2>Drinks:</h2>
+    <ul>
+        {% if row[6] %}
+        <li>Coca-Cola {{ row[6] }}</li>
+        {% endif %}
+        {% if row[7] %}
+        <li>Sprite {{ row[7] }}</li>
+        {% endif %}
+        {% if row[8] %}
+        <li>Pepsi {{ row[8] }}</li>
+        {% endif %}
+        {% if row[9] %}
+        <li>Heineken {{ row[9] }}</li>
+        {% endif %}
+        {% if row[10] %}
+        <li>Corona  {{ row[10] }}</li>
+        {% endif %}
+    </ul>
+    {% endfor %}
+</body>
+</html>
