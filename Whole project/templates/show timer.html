@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <style>
+            table {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 23px;
+                border-collapse: collapse;
+            }
+            table td, tr {
+                padding: 0;
+                text-align: center;
+                vertical-align: middle;
+            }
+        </style>
+        <title>Smart oven</title>
+        {% if mode == 0 %}
+            <meta http-equiv="refresh" content="1; URL=http://127.0.0.1:5000/pizza-done">
+        {% else %}
+            <meta http-equiv="refresh" content="1">
+        {% endif %}
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td colspan="2">Time left until pizza is ready</td>
+            </tr>
+            <tr>
+                <td>{{ minutes }}</td>
+                <td>{{ seconds }}</td>
+            </tr>
+            <tr>
+                <td>Order number: </td>
+                <td>{{ order_number }}</td>
+            </tr>
+            <tr>
+                <td>Pizza: </td>
+                <td>{{ pizza }}</td>
+            </tr>
+        </table>
+    </body>
+</html>

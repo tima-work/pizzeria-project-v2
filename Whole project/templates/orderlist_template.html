@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>order list</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='liststyle.css') }}"/>
+        <meta http-equiv="refresh" content="10">
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="{{ url_for('go_home') }}"><img src="{{  url_for('static', filename='logo.png')  }}" height="70px" width="70px" ></a>
+        </div>
+        <center>
+            <br><br><br>
+            <h1>Order screen</h1>
+            {% for a in all_orders %}
+                {% if time_list[loop.index - 1] == "Ready" %}
+                    <button type="button" class="order-collapsible">Order {{ a }}<p class="timer">Ready for pickup</p></button>
+                {% else %}
+                    <button type="button" class="order-collapsible">Order {{ a }}<p class="timer">Ready in: {{ time_list[loop.index - 1] }} minutes</p></button>
+                {% endif %}
+                <div class="content">
+                    <list>
+                        <ul>
+                            {% for b in all_orders[a] %}
+                                <li>{{ b }}</li>
+                            {% endfor %}
+                        </ul>
+                    </list>
+                </div>
+                <br><br>
+            {% endfor %}
+
+
+        </Center>
+        
+    </body>
+</html>

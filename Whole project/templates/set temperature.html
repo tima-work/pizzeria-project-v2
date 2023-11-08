@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <style>
+            table {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 23px;
+                border-collapse: collapse;
+            }
+            table td, tr {
+                padding: 0;
+                text-align: center;
+                vertical-align: middle;
+            }
+        </style>
+        <title>Smart oven</title>
+    </head>
+    <body>
+        <form action="/smart-oven/set-temperature" method="post">
+            <table cellspacing="0" cellpadding="0" border="0">
+                <tr><td><p>Set temperature of smart oven</p></td></tr>
+                <tr><td><input type="range" id="Celcius degrees" name="amountRange" min="100" max="300" value="100" oninput="this.form.amountInput.value=this.value"></td></tr>
+                <tr><td><input type="number" name="amountInput" min="100" max="300" value="100" oninput="this.form.amountRange.value=this.value"></td></tr>
+                <tr><td><input type="submit" value="Set"></td></tr>
+            </table>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Order number</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='cashier order number.css') }}"/>
+    </head>
+    <body>
+        <h1 class="mainTitle">The order has been placed</h1>
+        <div class="form-container">
+            <p class="placedOrder">Order number:</p>
+            <p class="randomNumber">{{ order_number}}</p>
+        </div>
+        <div>
+            <a href="{{ url_for('return_home_cashier') }}"><button class="buttonMenu" type="button"><span></span>Menu</button></a>
+        </div>
+    </body>
+</html>

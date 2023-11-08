@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Payment Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='payment method.css') }}"/>
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="{{ url_for('go_home') }}"><img src="{{  url_for('static', filename='logo.png')  }}" height="70px" width="70px" ></a>
+        <div class="navbar-right">
+            <a href="{{ url_for('payment') }}"><h2>Payment</h2></a>
+            <a href="{{ url_for('go_back') }}"><h2>Return</h2></a>
+        </div>
+        </div>
+        <h1 class="mainTitle">Payment Details</h1>
+        <div class="container">
+            <div class="paymentMethodBox">
+                <label class="text">Cash
+                    <input type="radio" checked="checked" name="radio">
+                    <span class="checkmark"></span>
+                    </label>
+                    <label class="text">Card
+                    <input type="radio" name="radio">
+                    <span class="checkmark"></span>
+                    </label>
+                    <ul>
+                        <li class="options">iDEAL</li>
+                        <li class="options">PayPal</li>
+                        <li class="options">Credit Card</li>
+                    </ul>
+            </div>
+            <div class="totalPriceBox">
+                <p class="totalPrice">Total Price:</p>
+                <p class="price">{{ price }}$</p>
+            </div>
+        </div>
+        <a href="{{ url_for('order_number') }}"><input class="sample" type="submit" value="Place the order"></a>
+    </body>
+</html>

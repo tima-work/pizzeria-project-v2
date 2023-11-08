@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <style>
+            table {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 23px;
+                border-collapse: collapse;
+            }
+            table td, tr {
+                padding: 0;
+                text-align: center;
+                vertical-align: middle;
+            }
+        </style>
+        <title>Smart oven</title>
+        {% if current_temperature == expected_temperature %}
+            <meta http-equiv="refresh" content="1; URL=http://127.0.0.1:5000/set-timer">
+        {% else %}
+            <meta http-equiv="refresh" content="1">
+        {% endif %}
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td>Current temperature: </td>
+                <td>{{ current_temperature }}</td>
+            </tr>
+            <tr>
+                <td>Needed temperature: </td>
+                <td>{{ expected_temperature }}</td>
+            </tr>
+        </table>
+    </body>
+</html>

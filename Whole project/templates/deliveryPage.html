@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Delivery Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='delivery.css') }}"/>
+</head>
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('go_home') }}"><img src="{{  url_for('static', filename='logo.png')  }}" height="70px" width="70px" ></a>
+    <div class="navbar-right">
+        <a href="{{ url_for('payment') }}"><h2>Payment</h2></a>
+        <a href="{{ url_for('go_back') }}"><h2>Return</h2></a>
+    </div>
+    </div>   
+    <h1 class="mainTitle">Delivery</h1>
+    <div class="form-container">
+        <label class="details">Name:</label>
+        <input type="text"><br><br>
+
+        <label class="details">Last name:</label>
+        <input type="text"><br><br>
+
+        <label class="details">Email:</label>
+        <input type="text"><br><br>
+
+        <label class="details">Phone number:</label>
+        <input type="text"><br><br>
+
+        <label class="details">Address:</label>
+        <input type="text"><p class="location">*Use location*</p><br>
+
+        <input type="checkbox" class="checkbox">
+        <label>* Terms and Conditions</label><br><br>
+
+        <input type="checkbox" class="checkbox">
+        <label>Subscribe for weekly email newsletters</label><br><br>
+
+        <a href="{{ url_for('payment') }}"><input class="sample" type="submit" value="Continue to payment"></a>
+</body>
+</html>

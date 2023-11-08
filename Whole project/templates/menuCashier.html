@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Menu</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='cashier menu.css') }}"/>
+</head>
+<body>
+    <div class="navbar">
+    </div>
+    <table class="main-title-table">
+        <tr><td><h1 class="mainTitle">Menu</h1></td></tr>
+    </table>
+    <form action="/cashier/go-to-cashier-payment" method="post">
+        <div class="container">
+            <div class="pizzasBox">
+                <h2>Pizzas</h2>
+                <label class="product" for="quantity">1. Pepperoni/Peperoni:</label>
+                <input class="num" type="number" id="quantity" name="Pepperoni/Peperoni" min="0"><br><br><br>
+
+                <label class="product" for="quantity">2. Hawaiian:</label>
+                <input class="num" type="number" id="quantity" name="Hawaiian" min="0"><br><br><br>
+
+                <label class="product" for="quantity">3. Seafood pizza/Pizza di Pesce:</label>
+                <input class="num" type="number" id="quantity" name="Seafood pizza/Pizza di Pesce" min="0"><br><br><br>
+
+                <label class="product" for="quantity">4. Four cheese pizza/Quattro Formaggi:</label>
+                <input class="num" type="number" id="quantity" name="Four cheese pizza/Quattro Formaggi" min="0"><br><br><br>
+
+                <label class="product" for="quantity">5. Veggie pizza/Pizza Vegetariana:</label>
+                <input class="num" type="number" id="quantity" name="Veggie pizza/Pizza Vegetariana" min="0"><br><br><br>
+            </div>
+            <div class="drinksBox">
+                <h2>Drinks</h2>
+                <label class="product" for="quantity">1. Coca-Cola:</label>
+                <input class="num" type="number" id="quantity" name="Cola" min="0"><br><br><br>
+
+                <label class="product" for="quantity">2. Sprite:</label>
+                <input class="num" type="number" id="quantity" name="Sprite" min="0"><br><br><br>
+
+                <label class="product" for="quantity">3. Pepsi:</label>
+                <input class="num" type="number" id="quantity" name="Pepsi" min="0"><br><br><br>
+
+                <label class="product" for="quantity">4. Heineken:</label>
+                <input class="num" type="number" id="quantity" name="Heineken" min="0"><br><br><br>
+
+                <label class="product" for="quantity">5. Corona</label>
+                <input class="num" type="number" id="quantity" name="Corona" min="0"><br><br><br>
+            </div>    
+        </div>
+        <table class="go-to-payment-table">
+            <tr><td><button class="goButton" type="submit"><span></span>Go</button></td></tr>
+        </table>
+    </form>
+</body>
+</html>

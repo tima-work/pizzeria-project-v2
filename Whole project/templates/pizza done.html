@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <style>
+            table {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 23px;
+                border-collapse: collapse;
+            }
+            table td, tr {
+                padding: 0;
+                text-align: center;
+                vertical-align: middle;
+            }
+            td.special {
+                border: 20px;
+            }
+            a {
+                display: inline-block;
+                height: 50px; /*sets height of element*/
+                background: cornflowerblue; /*sets the background of this element (here a solid colour)*/
+                padding-left: 20px; /*sets 'padding'*/
+                padding-right: 20px; /*sets 'padding'*/
+                line-height: 50px; /*for this, it sets vertical alignment*/
+            }
+            a:hover {
+                background: tomato; /*sets background colour*/
+            }
+        </style>
+        <title>Smart oven</title>
+        {% if mode == 0 %}
+            <meta http-equiv="refresh" content="1; URL=http://127.0.0.1:5000/pizza-done">
+        {% else %}
+            <meta http-equiv="refresh" content="1">
+        {% endif %}
+    </head>
+    <body>
+        <table>
+            <tr><td>Your {{ pizza }} from order {{ order_number }} is ready</td></tr>
+            <tr><td class="special"><a href="{{  url_for('set_timer')  }}">Set timer</a></td></tr>
+        </table>
+    </body>
+</html>

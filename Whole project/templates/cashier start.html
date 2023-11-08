@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Cashier website</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='cashier menu.css') }}"/>
+    </head>
+    <body>
+        <table class="inform-table-table">
+            <form action="/cashier/inform-table" method="post">
+                <tr><td><p>Enter number of table to inform</p></td></tr>
+                <tr><td><input type="text" name="table number"></td></tr>
+                <tr><td><input type="submit" class="my-button" value="Inform the table"></td></tr>
+            </form>
+        </table>
+        <table class="order-pickedup-table">
+            <form action="/cashier/order-was-collected" method="post">
+                <tr><td><p>Enter number of order that was picked up</p></td></tr>
+                <tr><td><input type="text" name="order number"></td></tr>
+                <tr><td><input type="submit" class="my-button" value="Submit"></td></tr>
+            </form>
+        </table>
+        <table class="go-to-cahier-menu-table">
+            <tr><td><a href="{{  url_for('go_to_cashier_menu')  }}"><input type="submit" class="go-to-menu-button" value="Go to the menu"></a></td></tr>
+        </table>
+    </body>
+</html>

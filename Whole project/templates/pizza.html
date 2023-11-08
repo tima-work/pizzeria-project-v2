@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles-menu.css') }}"/>
+    <title>Pizza menu</title>
+  </head>
+  <body>
+    <div class="navbar">
+        <a href="{{ url_for('go_home') }}"><img src="{{  url_for('static', filename='logo.png')  }}" height="70px" width="70px" ></a>
+    <div class="navbar-right">
+        <a href="{{ url_for('go_back') }}"><h2>Return</h2></a>
+        <a href="{{ url_for('go_to_drinks') }}"><h2>Drinks</h2></a>
+    </div>
+    </div>    
+    <div class="tableFixHeadList" class="div" style="margin-top: 300px; margin-left: 1500px; position:absolute">
+      <table style="width:100%">
+        <tr>
+          <th colspan="3">
+            <b>Your order<b>
+          </th>
+        </tr>
+        {% for i in order_list %}
+            <tr>
+                <td>{{ i }}</td>
+                <td>{{ price_list[loop.index - 1] }}$</td>
+                <form action="/home/remove-product" method="post">
+                    <input type="hidden" name="product name" value="{{ i }}">
+                    <td><input type="submit" value="Remove" class="remove_button"></td>
+                </form>
+            </tr>
+        {% endfor %}
+        <tr>
+          <th style="height: 30px; width: 100px;">
+            <a href="{{ url_for('go_to_payment') }}" class="button">Payment</a>
+          </th>
+          <th>  </th>
+          <th style="width: auto;">
+            Total Price: {{ price }}$
+          </th>
+        </tr>
+      </table>
+    </div>
+    <center><br><br><br><h1>Pizza's</h1>
+    <div class="tableFixHead" class="div">
+      <table>
+        <tr></tr>
+          <th><img class="left" style="float:left" src="{{  url_for('static', filename='pepperoni.avif')  }}">
+            <form action="/home/add-product" method="post">
+                <p class="left1">Pepperoni/Peperoni</p>
+                <input type="hidden" name="product name" value="Pepperoni/Peperoni">
+                <p>Ingredients: Tomato, Cheese, Pepperoni, Basil
+                <input type="submit" value="Add" class="right"></p>
+            </form>
+          <p class="left1">Price: $7</p>
+          </th>
+        </tr>
+        <tr>
+          <th><img class="left" style="float:left" src="{{  url_for('static', filename='hawai.jpg')  }}">
+            <form action="/home/add-product" method="post">
+                <p class="left1">Hawaiian</p>
+                <input type="hidden" name="product name" value="Hawaiian">
+                <p>Ingredients: Tomato, Cheese, Ham, Pineapple, Basil
+                <input type="submit" value="Add" class="right"></p>
+            </form>
+            <p class="left1">Price :$7</p>
+          </th>
+        </tr>
+        <tr>
+          <th><img class="left" style="float:left" src="{{  url_for('static', filename='sea.jpg')  }}">
+            <form action="/home/add-product" method="post">
+                <p class="left1">Seafood pizza/Pizza di Pesce</p>
+                <input type="hidden" name="product name" value="Seafood pizza/Pizza di Pesce">
+                <p>Ingredients: Tomato, Cheese, Scallops, Red onion, Basil
+                <input type="submit" value="Add" class="right"></p>
+            </form>
+            <p class="left1">Price: $8.5</p>
+          </th>
+        </tr>
+        <tr>
+          <th><img class="left" style="float:left" src="{{  url_for('static', filename='cheese.jpg')  }}">
+            <form action="/home/add-product" method="post">
+                <p class="left1">Four cheese pizza/Quattro Formaggi</p>
+                <input type="hidden" name="product name" value="Four cheese pizza/Quattro Formaggi">
+                <p>Ingredients: Tomato, Cheese, Blue cheese, Gorgonzola, Cheddar, Basil
+                <input type="submit" value="Add" class="right"></p>
+            </form>
+            <p class="left1">Price: $8</p>
+          </th>
+        </tr>
+        <tr>
+          <th><img class="left" style="float:left" src="{{  url_for('static', filename='veggie.webp')  }}">
+            <form action="/home/add-product" method="post">
+                <p class="left1">Veggie pizza/Pizza Vegetariana</p>
+                <input type="hidden" name="product name" value="Veggie pizza/Pizza Vegetariana">
+                <p>Ingredients: Tomato, Cheese, Pepper, Paprika, Mushroom, Basil
+                <input type="submit" value="Add" class="right"></p>
+            </form>
+            <p class="left1">Price: $6.5</p>
+          </th>
+        </tr>
+      </table>
+    </div>
+    </center>
+  </body>
+</html>

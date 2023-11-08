@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Order number</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='order number.css') }}"/>
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="{{ url_for('go_home') }}">
+                <img src="{{  url_for('static', filename='logo.png')  }}" class="logo">
+            </a>
+        </div>
+        <h1 class="mainTitle">Your order has been placed</h1>
+
+        <div class="form-container">
+            <p class="placedOrder">Your order number is:</p>
+            <p class="randomNumber">{{ order_number }}</p>
+            <div>
+                <a href="{{ url_for('go_to_order_screen') }}">
+                <img src="{{  url_for('static', filename='arrow.png')  }}" class="arrow">
+                <p class="screenText">Go to the screen</p>
+                </a>
+            </div>
+        </div>
+    </body>
+</html>

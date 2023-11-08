@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chef website</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='liststyle.css') }}"/>
+        <meta http-equiv="refresh" content="10">
+    </head>
+    <body>
+        <center>
+            <br><br><br>
+            <h1>Chef website</h1>
+            {% for a in all_orders %}
+                <button type="button" class="collapsible">Order {{ a }}</button>
+                <div class="content">
+                    <list>
+                        <ul>
+                            {% for b in all_orders[a] %}
+                                <li>{{ b }}</li>
+                            {% endfor %}
+                        </ul>
+                    </list>
+                </div>
+                <br><br>
+            {% endfor %}
+
+
+        </Center>
+        
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+            
+            for (i = 0; i < coll.length; i++) {
+              coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                  content.style.display = "none";
+                } else {
+                  content.style.display = "block";
+                }
+              });
+            }
+        </script>
+    </body>
+</html>

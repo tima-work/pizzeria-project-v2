@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles-menu.css') }}"/>
+    <title>Drink menu</title>
+  </head>
+  <body>
+    <div class="navbar">
+        <a href="{{ url_for('go_home') }}"><img src="{{  url_for('static', filename='logo.png')  }}" height="70px" width="70px" ></a>
+    <div class="navbar-right">
+        <a href="{{ url_for('go_back') }}"><h2>Return</h2></a>
+        <a href="{{ url_for('go_to_payment') }}"><h2>{{ button_name }}</h2></a>
+    </div>
+    </div>   
+    <div class="tableFixHeadList" class="div" style="margin-top: 300px; margin-left: 1500px; position:absolute">
+        <table style="width:100%">
+          <tr>
+            <th colspan="3">
+              <b>Your order<b>
+            </th>
+          </tr>
+        {% for i in order_list %}
+            <tr>
+                <td>{{ i }}</td>
+                <td>{{ price_list[loop.index - 1] }}$</td>
+                <form action="/home/remove-product" method="post">
+                    <input type="hidden" name="product name" value="{{ i }}">
+                    <td><input type="submit" value="Remove" class="remove_button"></td>
+                </form>
+            </tr>
+        {% endfor %}
+        <tr>
+          <th style="height: 30px; width: 100px;">
+            <a href="{{ url_for('go_to_payment') }}" class="button">Payment</a>
+          </th>
+          <th>  </th>
+          <th style="width: auto;">
+            Total Price: {{ price }}$
+          </th>
+        </tr>
+        </table>
+      </div> 
+    <center><br><br><br><h1>Drinks</h1>
+    <div class="tableFixHead">
+      <table>
+        <tr>
+        <th><img class="left" style="float:left" src="{{  url_for('static', filename='cola.jpeg')  }}">
+            <form action="/home/add-product" method="post">
+                <p class="left1">Cola</p>
+                <input type="hidden" name="product name" value="Cola">
+                <p><input type="submit" value="Add" class="right"></p>
+            </form>
+          <p class="left1">Price: $3</p>
+        </th>
+        </tr>
+        <tr>
+          <th><img class="left" style="float:left" src="{{  url_for('static', filename='spirt.jpeg')  }}">
+            <form action="/home/add-product" method="post">
+                <p class="left1">Sprite</p>
+                <input type="hidden" name="product name" value="Sprite">
+                <p><input type="submit" value="Add" class="right"></p>
+            </form>
+            <p class="left1">Price: $3</p>
+          </th>
+        </tr>
+        <tr>
+          <th><img class="left" style="float:left" src="{{  url_for('static', filename='pepsi.jpeg')  }}">
+            <form action="/home/add-product" method="post">
+                <p class="left1">Pepsi</p>
+                <input type="hidden" name="product name" value="Pepsi">
+                <p><input type="submit" value="Add" class="right"></p>
+            </form>
+            <p class="left1">Price: $3</p>
+          </th>
+        </tr>
+        <tr>
+          <th><img class="left" style="float:left" src="{{  url_for('static', filename='heineke.jpeg')  }}">
+            <form action="/home/add-product" method="post">
+                <p class="left1">Heineken</p>
+                <input type="hidden" name="product name" value="Heineken">
+                <p><input type="submit" value="Add" class="right"></p>
+            </form>
+            <p class="left1">Price: $5</p>
+          </th>
+        </tr>
+        <tr>
+          <th><img class="left" style="float:left" src="{{  url_for('static', filename='corona.jpeg')  }}">
+            <form action="/home/add-product" method="post">
+                <p class="left1">Corona</p>
+                <input type="hidden" name="product name" value="Corona">
+                <p><input type="submit" value="Add" class="right"></p>
+            </form>
+            <p class="left1">Price: $5</p>
+          </th>
+        </tr>
+      </table>
+    </div>
+    </center>
+  </body>
+</html>
